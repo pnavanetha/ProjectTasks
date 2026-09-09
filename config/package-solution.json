@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "taskmanagement-client-side-solution",
+    "id": "02bcd52c-2e1b-4ff0-a8d1-ce90a04b343a",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.21.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "taskmanagement description"
+      },
+      "longDescription": {
+        "default": "taskmanagement description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "taskmanagement Feature",
+        "description": "The feature that activates elements of the taskmanagement solution.",
+        "id": "10990bc8-fa2e-4014-8422-e3c08cf6e874",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/taskmanagement.sppkg"
+  }
+}

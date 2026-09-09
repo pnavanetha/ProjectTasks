@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "projecttasks-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/projecttasks/ProjecttasksWebPart.js",
+          "manifest": "./src/webparts/projecttasks/ProjecttasksWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ProjecttasksWebPartStrings": "lib/webparts/projecttasks/loc/{locale}.js"
+  }
+}
