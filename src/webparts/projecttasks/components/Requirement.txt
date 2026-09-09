@@ -1,0 +1,34 @@
+Employee name master
+-----------
+Holidays Masters
+
+Event Date
+-----------
+
+Task Type master
+
+-----------
+
+Task backlog Sheet
+
+Coloumns-- 
+
+Task Title
+
+Task Attachement doc 
+Email/Task Received date
+Priority  --- dropdown  - Low, High, Meadium, Critical
+Task Type  -- dropdown - look filed -- from Task TYpe Masters
+Estimated Hours
+Actual Burnt Hours
+Assigned Employee  --- look up field from --- Employee master
+Task Status -- dropdown -- Done, In Progress, On-Hold, Ready
+
+-------------
+
+Montly Sprint Details   
+
+
+
+
+
