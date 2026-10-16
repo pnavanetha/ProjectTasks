@@ -1,21 +1,24 @@
 import * as React from 'react';
 import styles from './Projecttasks.module.scss';
 import type { IProjecttasksProps } from './IProjecttasksProps';
-import { escape } from '@microsoft/sp-lodash-subset';
+// import { escape } from '@microsoft/sp-lodash-subset';
+import EmployeeForm from './Forms/Employee';
 
 export default class Projecttasks extends React.Component<IProjecttasksProps> {
   public render(): React.ReactElement<IProjecttasksProps> {
-    const {
-      description,
-      isDarkTheme,
-      environmentMessage,
-      hasTeamsContext,
-      userDisplayName
-    } = this.props;
+    // const {
+    //   description,
+    //   isDarkTheme,
+    //   environmentMessage,
+    //   hasTeamsContext,
+    //   userDisplayName
+    // } = this.props;
 
     return (
-      <section className={`${styles.projecttasks} ${hasTeamsContext ? styles.teams : ''}`}>
-        <div className={styles.welcome}>
+      <section className={`${styles.projecttasks} ${this.props.hasTeamsContext ? styles.teams : ''}`}>
+        <h2>Employee Form</h2>
+        <EmployeeForm />
+        {/* <div className={styles.welcome}>
           <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
           <h2>Well done, {escape(userDisplayName)}!</h2>
           <div>{environmentMessage}</div>
@@ -36,7 +39,7 @@ export default class Projecttasks extends React.Component<IProjecttasksProps> {
             <li><a href="https://aka.ms/spfx-yeoman-api" target="_blank" rel="noreferrer">SharePoint Framework API reference</a></li>
             <li><a href="https://aka.ms/m365pnp" target="_blank" rel="noreferrer">Microsoft 365 Developer Community</a></li>
           </ul>
-        </div>
+        </div> */}
       </section>
     );
   }
