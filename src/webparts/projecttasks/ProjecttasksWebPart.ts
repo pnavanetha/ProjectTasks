@@ -11,6 +11,7 @@ import { IReadonlyTheme } from '@microsoft/sp-component-base';
 import * as strings from 'ProjecttasksWebPartStrings';
 import Projecttasks from './components/Projecttasks';
 import { IProjecttasksProps } from './components/IProjecttasksProps';
+import { getSP } from './pnpjsConfig';
 
 export interface IProjecttasksWebPartProps {
   description: string;
@@ -37,10 +38,10 @@ export default class ProjecttasksWebPart extends BaseClientSideWebPart<IProjectt
     ReactDom.render(element, this.domElement);
   }
 
-  protected onInit(): Promise<void> {
-    return this._getEnvironmentMessage().then(message => {
-      this._environmentMessage = message;
-    });
+  protected async onInit(): Promise<void> {
+    await super.onInit();
+    getSP(this.context);
+    this._environmentMessage = await this._getEnvironmentMessage();
   }
 
 

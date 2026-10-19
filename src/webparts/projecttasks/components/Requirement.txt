@@ -28,6 +28,10 @@ Task Status -- dropdown -- Done, In Progress, On-Hold, Ready
 
 Montly Sprint Details   
 
+Lists
+---------
+ProjectEmployees
+
 
 
 
