@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Checkbox, PrimaryButton, TextField } from '@fluentui/react';
 import { getSP } from '../../pnpjsConfig';
+// import { result } from 'lodash';
 
 const LIST_NAME = "ProjectEmployees";
 
@@ -14,6 +15,7 @@ export interface IEmpoyeeFormData {
 const EmployeeForm: React.FC = () => {
     const [formData, setFormData] = useState<IEmpoyeeFormData>({ Title: '', isActive: false });
     const [employeeList, setEmployeeList] = useState<IEmpoyeeFormData[]>([]);
+    // const [editId, setEditId] = useState<number | null>(null);
 
     const getEmployees = async (): Promise<void> => {
         try {
@@ -53,18 +55,29 @@ const EmployeeForm: React.FC = () => {
                 .items
                 .add({
                     Title: formData.Title,
-                    IsActive: formData.isActive
+                    isActive: formData.isActive
                 });
             console.log('Employee added:', result);
-            // setEmployeeList([...employeeList, formData]);
-            // setFormData({
-            //     Title: '',
-            //     isActive: false
-            // });
-            } catch (error) {
-                console.error("Error saving employee:", error);
-            }
-        
+
+        } catch (error) {
+            console.error("Error saving employee:", error);
+        }
+
+    };
+
+    const handleUpdate = async (): Promise<void> => {
+        if (!formData.Id) return;
+        try {
+            const sp = getSP();
+            await sp.web.lists.getByTitle(LIST_NAME).items.getById(formData.Id).update({ Title: formData.Title, isActive: formData.isActive });
+            // console.log('Employee details updated sucessfully');
+            await getEmployees();
+
+            handleClear();
+        } catch (error) {
+            console.error('Error updating Employee:', error);
+
+        }
     };
 
     return (
@@ -79,7 +92,12 @@ const EmployeeForm: React.FC = () => {
                 checked={formData.isActive}
                 onChange={(_event, checked) => setFormData({ ...formData, isActive: checked || false })}
             /> <br />
-            <PrimaryButton text="Save" onClick={handleSave} />
+            {/* <PrimaryButton text="Save" onClick={handleSave} /> */}
+            < PrimaryButton text={formData.Id ? 'Update' : 'Save'}
+                onClick={() => {
+                    (formData.Id ? handleUpdate() : handleSave()).catch(console.error);
+                }}
+            />
             <PrimaryButton text="Clear" styles={{ root: { backgroundColor: 'gray' } }} onClick={handleClear} />
             <table style={{ marginTop: '20px', width: '100%', borderCollapse: 'collapse' }}>
                 <thead>

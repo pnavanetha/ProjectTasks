@@ -6,6 +6,8 @@ import { LogLevel, PnPLogging } from "@pnp/logging";
 import '@pnp/sp/webs';
 import '@pnp/sp/lists';
 import '@pnp/sp/items';
+import '@pnp/sp/folders';
+import '@pnp/sp/files';
 
 let _sp: SPFI | null = null;
 

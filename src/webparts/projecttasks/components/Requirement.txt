@@ -31,7 +31,11 @@ Montly Sprint Details
 Lists
 ---------
 ProjectEmployees
-
+EmployeeHolidays
+ProjectTasksBacklogs
+ProjectTaskDocuments
+SprintDetails
+MontlySprintDetails
 
 
 
